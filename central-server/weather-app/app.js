@@ -1,6 +1,6 @@
 const request = require("postman-request")
 
-const geocodeUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic3dhZGUxIiwiYSI6ImNram9pNmVyZTJ4azQycW83Z2w4a2I0M2IifQ.nCGXJ196sRojF-AqS-WFmQ"
+const geocodeUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Peterborough.json?access_token=pk.eyJ1Ijoic3dhZGUxIiwiYSI6ImNram9pNmVyZTJ4azQycW83Z2w4a2I0M2IifQ.nCGXJ196sRojF-AqS-WFmQ"
 
 request({url: geocodeUrl, json: true}, (error, response) => {
    const latitude = response.body.features[0].center[1]
