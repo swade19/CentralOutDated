@@ -34,7 +34,17 @@ getLocation = async (req, res) => {
     }
 }
 
+getGreeting = async (req, res) => {
+    try {
+        res.send("Good Day Sarah")
+    }
+    catch (e){
+        res.status(500).send()
+    }
+}
+
 module.exports = {
     getWeather,
-    getLocation
+    getLocation, 
+    getGreeting
 }
