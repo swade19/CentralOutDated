@@ -6,6 +6,8 @@ const express = require('express'),
 app.use(cors()); 
 app.use(express.json())
 
+require('./db/mongoose')
+
 const weatherRouter = require("../src/routers/weather")
 
 app.use(weatherRouter)

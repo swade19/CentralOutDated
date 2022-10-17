@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Central.Data.Models.ToDo>
+<div>
+    <h2>To Do List</h2>
+    <div>There are @Model.Count() things to do still.</div>
+    <ul>
+    </ul>
+</div>
+
+<div id="container">
+    <h1>To-Do List <i class="fa fa-plus"></i></h1>
+    <input type="text" placeholder="Add New Todo">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li> @item.Item</li>
+        }
+    </ul>
+</div>
