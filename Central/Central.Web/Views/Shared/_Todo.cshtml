@@ -1,18 +1,45 @@
 ﻿@model IEnumerable<Central.Data.Models.ToDo>
-<div>
-    <h2>To Do List</h2>
-    <div>There are @Model.Count() things to do still.</div>
-    <ul>
-    </ul>
-</div>
 
 <div id="container">
     <h1>To-Do List <i class="fa fa-plus"></i></h1>
-    <input type="text" placeholder="Add New Todo">
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li> @item.Item</li>
-        }
-    </ul>
+    <div>
+        <p>
+            There are @Model.Count() things to do still.
+        </p>
+    </div>
+
+    @using (Html.BeginForm("Create", "Todo"))
+    {
+        <div class="form-group">
+            <label for="AddNewTodo"></label>
+            <input type="text" id="AddNewTodo" name="=AddNewTodo" placeholder="Add New Todo" /><br />
+        </div>
+
+        <div class="form-group">
+            <table>
+                <tr>
+                    <th>
+                        Still To Do
+                    </th>
+                    <th>
+                        Completed
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>   
+                        @Html.ActionLink(@item.Item, "Edit", "Todo") 
+                        </td>
+                        <td>
+                            @Html.CheckBox("Complete")
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
 </div>
